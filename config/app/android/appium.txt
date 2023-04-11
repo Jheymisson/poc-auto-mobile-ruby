@@ -1,0 +1,8 @@
+[caps]
+    platformName = "Android"
+    deviceName = "qaauto"
+    app = "./config/app/android/discord-172-23-stable.apk"
+    autoGrantPermissions = true
+    [appium_lib]
+    newCommandTimeout = 999999
+    wait = 20

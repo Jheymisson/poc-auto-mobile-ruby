@@ -1,0 +1,7 @@
+Gemfile.lock
+.DS_Store
+
+/exec-logs
+/config/report/*.html
+
+/config/app/android/discord-172-23-stable.apk

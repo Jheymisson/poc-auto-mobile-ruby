@@ -1,0 +1,11 @@
+android:
+  login:
+    inputUsuario:
+      tipo_busca: 'TEXT'
+      value: 'Email or Phone Number'
+    inputSenha:
+      tipo_busca: 'TEXT'
+      value: 'Password'
+    btnLogar:
+      tipo_busca: 'TEXT'
+      value: 'Log In'

@@ -1,0 +1,10 @@
+ios:
+  home:
+android:
+  home:
+    btnLogIn:
+      tipo_busca: 'TEXT'
+      value: 'Log In'
+    btnRegister:
+      tipo_busca: 'TEXT'
+      value: 'Register'

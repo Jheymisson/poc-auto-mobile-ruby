@@ -1,0 +1,12 @@
+[caps]
+    platformName = "iOS"
+    platformVersion = "14.5"
+    deviceName = "iPhone 11 Pro"
+    app = "./config/app/ios/Drogaraia/QA-Drogaraia.app"
+    #app = "./config/app/<SEU IPA>.ipa" - para executar em device fisico
+    automationName = "XCUITest"
+    autoAcceptAlerts = true
+    language = "pt"
+    locale = "pt_BR"
+    useNewWDA = true
+    newCommandTimeout = 999999
