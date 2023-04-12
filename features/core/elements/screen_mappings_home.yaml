@@ -2,7 +2,7 @@ ios:
   home:
 android:
   home:
-    btnLogIn:
+    btn_logIn:
       tipo_busca: 'TEXT'
       value: 'Log In'
     btnRegister:

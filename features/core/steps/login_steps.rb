@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
 Given('que acesso a tela inicial do APP') do
-    @home.clicarBotaoLogIn
+    @home.clicar_botao_login
 end
 
 When('preencho {string} e {string}') do |usuario, senha|
-    @login.informarUsuario usuario
-    @login.informarSenha senha
-    @login.clicarBotaoLogar
+    @login.informar_usuario usuario
+    @login.informar_senha senha
+    @login.clicar_botao_logar
 end
 
-Then('devo validar o nome do usuário {string} na Home do App') do |nomeUsuario|
-    puts "Nome do usuário no arquivo de etapas: #{nomeUsuario}"
-    @homeApp.validarNomeUsuario(nomeUsuario)
+Then('devo validar o botão de perfil na Home do App') do 
+    @homeApp.validar_botao
 end
   

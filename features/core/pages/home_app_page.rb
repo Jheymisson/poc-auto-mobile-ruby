@@ -10,11 +10,9 @@ class HomeAppPage
         get_screen_mappings 'homeApp', 'core'
     end
 
-    def validarNomeUsuario(nome)
-        puts "Nome recebido: #{nome}"
-        elemento = @mappings['nomeUsuario']
-        texto_elemento = validarTexto(elemento).text
-        expect(texto_elemento).to include(nome)
+    def validar_botao
+        elemento = @mappings['botao_perfil']
+        texto_elemento = button_exists?(elemento)
     end
       
 

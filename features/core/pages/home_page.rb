@@ -14,8 +14,8 @@ class HomePage
         
     # end
 
-    def clicarBotaoLogIn
-        clicar @mappings['btnLogIn']
+    def clicar_botao_login
+        clicar @mappings['btn_logIn']
     end
 
     # def clicarBotaoRegister

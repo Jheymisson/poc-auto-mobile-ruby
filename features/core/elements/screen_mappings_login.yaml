@@ -1,11 +1,11 @@
 android:
   login:
-    inputUsuario:
+    input_usuario:
       tipo_busca: 'TEXT'
       value: 'Email or Phone Number'
-    inputSenha:
+    input_senha:
       tipo_busca: 'TEXT'
       value: 'Password'
-    btnLogar:
+    btn_logar:
       tipo_busca: 'TEXT'
       value: 'Log In'
