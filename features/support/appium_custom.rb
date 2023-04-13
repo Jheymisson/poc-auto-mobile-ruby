@@ -48,65 +48,32 @@ def esperar_elemento(el)
 end
 
 
-def elemento_existente?(el)
-  $logger.info("Verificando se existe o elemento #{el['value']} usando o tipo de busca #{el['tipo_busca']}")
-  case el['tipo_busca']
-  when 'XPATH'
-    return $driver.find_elements(:xpath, el['value']).count > 0
-  when 'ID'
-    return $driver.find_elements(:id, el['value']).count > 0
-  when 'CLASS'
-    return $driver.find_elements(:class, el['value']).count > 0
-  when 'TEXT'
-    return $driver.find_elements(:xpath, "//*[contains(@text,'#{el['value']}')]").count > 0
-  when 'ACCESSIBILITY'
-    return $driver.find_elements(:accessibility_id, el['value']).count > 0
-  end
-end
-
-def validar_texto(elemento)
-  esperar_elemento(elemento)
-  case elemento['tipo_busca']
-  when 'XPATH'
-    $driver.find_element(:xpath, elemento['value']).text
-  when 'TEXT'
-    $driver.find_element(:xpath, "//*[contains(@text,'#{elemento['value']}')]").text
-  when 'ACCESSIBILITY'
-    $driver.find_element(:accessibility_id, elemento['value']).text
-  end
-end
-
-def button_exists?(elemento)
+def elemento_existente?(el, variable = nil)
   begin
-    case elemento['tipo_busca']
-    when 'ACCESSIBILITY'
-      $logger.info("Verificando a existência do botão #{elemento['value']} usando o tipo de busca ACCESSIBILITY")
-      el = $driver.find_elements(:accessibility_id, elemento['value'])
-    when 'ID'
-      $logger.info("Verificando a existência do botão #{elemento['value']} usando o tipo de busca ID")
-      el = $driver.find_elements(:id, elemento['value'])
+    value_with_variable = variable ? el['value'] % variable : el['value']
+    case el['tipo_busca']
     when 'XPATH'
-      $logger.info("Verificando a existência do botão #{elemento['value']} usando o tipo de busca XPATH")
-      el = $driver.find_elements(:xpath, elemento['value'])
+      $logger.info("Verificando se existe o elemento #{value_with_variable} usando o tipo de busca XPATH")
+      el = $driver.find_elements(:xpath, value_with_variable)
+    when 'ID'
+      $logger.info("Verificando se existe o elemento #{value_with_variable} usando o tipo de busca ID")
+      el = $driver.find_elements(:id, value_with_variable)
+    when 'CLASS'
+      $logger.info("Verificando se existe o elemento #{value_with_variable} usando o tipo de busca CLASS")
+      el = $driver.find_elements(:class, value_with_variable)
+    when 'TEXT'
+      $logger.info("Verificando se existe o elemento #{value_with_variable} usando o tipo de busca TEXT")
+      el = $driver.find_elements(:xpath, "//*[contains(@text,'#{value_with_variable}')]")
+    when 'ACCESSIBILITY'
+      $logger.info("Verificando se existe o elemento #{value_with_variable} usando o tipo de busca ACCESSIBILITY")
+      el = $driver.find_elements(:accessibility_id, value_with_variable)
     else
-      raise "Tipo de busca não suportado: #{elemento['tipo_busca']}"
+      raise "Tipo de busca não suportado: #{el['tipo_busca']}"
     end
     return el.count > 0
   rescue Selenium::WebDriver::Error::NoSuchElementError
     return false
   end
-end
-
-def esperar_pelo_elemento(el)
-  case el['tipo_busca']
-  when 'XPATH'
-    $wait.until { $driver.find_element(:xpath, el['value']).displayed? }
-  when 'ID'
-    $wait.until { $driver.find_element(:id, el['value']).displayed? }
-  when 'CLASS'
-    $wait.until { $driver.find_element(:class, el['value']).displayed? }
-  end
-  $logger.info("Aguardou a exibição do elemento #{el['value']} usando o tipo de busca #{el['tipo_busca']}")
 end
 
 def esconder_teclado

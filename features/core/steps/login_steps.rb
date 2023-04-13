@@ -10,7 +10,7 @@ When('preencho {string} e {string}') do |usuario, senha|
     @login.clicar_botao_logar
 end
 
-Then('devo validar o botão de perfil na Home do App') do 
-    @homeApp.validar_botao
+Then('é exibido o nome do usuário na Home do App') do 
+    @homeApp.validar_home
 end
   

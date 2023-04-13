@@ -10,9 +10,10 @@ class HomeAppPage
         get_screen_mappings 'homeApp', 'core'
     end
 
-    def validar_botao
-        elemento = @mappings['botao_perfil']
-        texto_elemento = button_exists?(elemento)
+    def validar_home
+        nome = 'Jheymisson Albuquerque'
+        elemento = @mappings['nome_perfil']
+        texto_elemento = elemento_existente?(elemento, nome)
     end
       
 

@@ -1,5 +1,5 @@
 android:
   homeApp:
-    botao_perfil:
+    nome_perfil:
       tipo_busca: 'ACCESSIBILITY'
-      value: 'Settings, Jheymisson Albuquerque, Online'
+      value: 'Settings, %s, Online'
